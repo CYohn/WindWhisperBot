@@ -245,3 +245,26 @@ footer,
 .placeholder-response {
     text-align: center;
 }
+
+/*For the bot message responses*/
+
+.message {
+    margin: 0.5em 0;
+    padding: 0.75em;
+    border-radius: 10px;
+    max-width: 80%;
+}
+
+.message.user {
+    background-color: #dbeafe;
+    /* light blue for user */
+    align-self: flex-end;
+    text-align: right;
+}
+
+.message.bot {
+    background-color: #e2e8f0;
+    /* light gray for bot */
+    align-self: flex-start;
+    text-align: left;
+}
