@@ -2,9 +2,10 @@
   "name": "windwhisper",
   "version": "1.0.0",
   "description": "Wind Whisper Bot is your AI-powered conversational weather assistant—merging data, dialogue, and design to forecast smarter.",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
