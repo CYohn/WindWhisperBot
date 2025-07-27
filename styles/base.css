@@ -194,3 +194,54 @@ footer,
     text-align: center;
     margin-bottom: 2rem;
 }
+
+/*For the bot*/
+
+.bot-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: var(--card-bg, #1f1f1f);
+    border-radius: 1rem;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+    color: var(--text-color);
+}
+
+.chat-form {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.chat-form input[type="text"] {
+    flex: 1;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    border: 1px solid #555;
+    background-color: var(--input-bg, #2c2c2c);
+    color: var(--text-color);
+}
+
+.chat-form button {
+    padding: 0.75rem 1.25rem;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: var(--accent-color, #007bff);
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.chat-form button:hover {
+    background-color: #0056b3;
+}
+
+.chat-response {
+    margin-top: 2rem;
+    font-style: italic;
+    color: var(--text-secondary, #aaa);
+}
+
+.placeholder-response {
+    text-align: center;
+}

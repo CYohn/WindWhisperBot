@@ -15,8 +15,8 @@
         <h1>Wind Whisper Bot</h1>
         <ul>
             <li id="home-nav"><a href="index.html">Home</a></li>
-            <li><a href="overview.html">Technical Overview</a></li>
             <li><a href="bot.html">The Bot</a></li>
+            <li><a href="overview.html">Technical Overview</a></li>
             <li><a href="contact.html">Contact Us</a></li>
         </ul>
         <button id="theme-toggle" title="Toggle Theme">
@@ -28,10 +28,22 @@
     <main>
         <section class="bot-container">
             <h2>Talk to the Wind Whisper Bot</h2>
-            <p>(Bot UI coming soon...)</p>
-            <!-- Placeholder for chat interface -->
+            <p>Type your question below and let the wind whisper back...</p>
+    
+            <form id="chat-form" class="chat-form">
+                <label for="user-input" class="visually-hidden">Your Message</label>
+                <input type="text" id="user-input" name="user-input" placeholder="Ask me anything about the weather..."
+                    required />
+                <button type="submit">Send</button>
+            </form>
+    
+            <div id="chat-response" class="chat-response">
+                <!-- Bot's response will appear here -->
+                <p class="placeholder-response">(Bot response area)</p>
+            </div>
         </section>
     </main>
+
 
     <footer>
         © 2025 Wind Whisper Bot • Reimagining weather, one whisper at a time.
