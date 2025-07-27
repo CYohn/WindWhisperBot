@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Technical Overview – Wind Whisper Bot</title>
+    <link rel="stylesheet" href="styles/base.css" />
+    <link rel="stylesheet" href="styles/theme-dark.css" id="theme-style" />
+</head>
+
+<body>
+
+    <nav>
+        <h1>Wind Whisper Bot</h1>
+        <ul>
+            <li><a href="index.html" id="home-nav">Home</a></li>
+            <li><a href="overview.html">Technical Overview</a></li>
+            <li><a href="bot.html">The Bot</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+        <button id="theme-toggle" title="Toggle Theme">
+            <span id="theme-icon">🌙</span>
+            <span id="theme-label">Activate dark mode</span>
+        </button>
+    </nav>
+
+    <main>
+        <section class="overview-section">
+            <h2>Technical Overview</h2>
+            <p><strong>Wind Whisper Bot</strong> is a voice-assisted weather assistant that combines modern
+                conversational AI with real-time weather data from the <a href="https://openweathermap.org/api"
+                    target="_blank"><strong>OpenWeather API</strong></a>. Designed as a full-stack demo project, it
+                showcases a wide range of skills relevant to Intelligent Virtual Assistant (IVA) and Digital Platform
+                development.</p>
+
+            <h3>🌐 Project Stack</h3>
+            <ul>
+                <li><strong>Frontend:</strong> HTML5, CSS3 (light/dark themes), JavaScript (modular with toggle logic)
+                </li>
+                <li><strong>Backend:</strong> Node.js (Express.js) – for routing, API handling</li>
+                <li><strong>Database:</strong> MySQL – stores user queries, preferences (simulated for demo)</li>
+                <li><strong>API:</strong> RESTful fetch from OpenWeather API</li>
+                <li><strong>AI:</strong> Conversational logic simulated with basic NLU-style responses</li>
+                <li><strong>Conversational AI:</strong> Integrated with <a href="https://www.kore.ai"
+                        target="_blank"><strong>Kore.ai</strong></a>, utilizing real IVA workflows and built-in NLU/NLP capabilities to
+                    process user input and deliver contextual responses.</li>
+
+
+            </ul>
+
+            <h3>⚙️ Key Features</h3>
+            <ul>
+                <li>Toggleable dark/light themes with smooth transitions</li>
+                <li>LocalStorage-based redirect logic for returning users</li>
+                <li>Modular design using <code>/styles</code> and <code>/scripts</code> folders for scalability</li>
+                <li>Responsive layout and accessible design</li>
+            </ul>
+
+            <h3>🧠 Skills Demonstrated</h3>
+            <ul>
+                <li>REST API integration (OpenWeather)</li>
+                <li>Front-end and back-end communication</li>
+                <li>State management with localStorage</li>
+                <li>Theming and CSS architecture (BEM-like, component-friendly)</li>
+                <li>Node.js/Express routing (local server in development)</li>
+                <li>Basic conversational flow (to demonstrate IVA simulation)</li>
+            </ul>
+
+            <p>This project is not meant to be a commercial-grade assistant, but a solid showcase of the **end-to-end
+                IVA solution pipeline** using modern web technologies.</p>
+        </section>
+    </main>
+
+    <footer>
+        © 2025 Wind Whisper Bot • Reimagining weather, one whisper at a time.
+    </footer>
+
+    <script src="scripts/theme-toggle.js"></script>
+</body>
+
+</html>

@@ -124,6 +124,7 @@ footer,
 }
 
 
+/*For the bot page*/
 .bot-container {
     margin: 4rem auto;
     max-width: 600px;
@@ -132,4 +133,59 @@ footer,
     border-radius: 10px;
     background-color: var(--bg-color);
     text-align: center;
+}
+
+/*For the overview page*/
+.overview-container {
+    max-width: 800px;
+    margin: 4rem auto;
+    padding: 2rem;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.overview-container h2,
+.overview-container h3 {
+    color: var(--accent-color);
+}
+
+.overview-container ul {
+    padding-left: 1.5rem;
+    line-height: 1.6;
+}
+
+/*For the contact page*/
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 500px;
+    margin: 2rem auto;
+}
+
+.contact-form label {
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color, #444);
+    border-radius: 6px;
+    background-color: var(--input-bg, #111);
+    color: var(--text-color, #fff);
+}
+
+.contact-form .cta-button {
+    width: fit-content;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    background: linear-gradient(to right, #00c6ff, #0072ff);
+    color: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
 }
