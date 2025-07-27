@@ -1,30 +1,32 @@
-// scripts/theme-toggle.js
+document.addEventListener('DOMContentLoaded', () => {
+  const toggleButton = document.getElementById('theme-toggle');
+  const themeLink = document.getElementById('theme-style');
+  const LIGHT_THEME = 'styles/theme-light.css';
+  const DARK_THEME = 'styles/theme-dark.css';
 
-const toggleBtn = document.getElementById('theme-toggle');
-const themeLink = document.getElementById('theme-style');
-const icon = document.getElementById('theme-icon');
-const label = document.getElementById('theme-label');
-
-// Load previously saved theme
-let currentTheme = localStorage.getItem('theme') || 'theme-dark';
-themeLink.href = `styles/${currentTheme}.css`;
-updateToggleUI(currentTheme);
-
-// Toggle between light and dark
-toggleBtn.addEventListener('click', () => {
-  currentTheme = currentTheme === 'theme-dark' ? 'theme-light' : 'theme-dark';
-  themeLink.href = `styles/${currentTheme}.css`;
-  localStorage.setItem('theme', currentTheme);
-  updateToggleUI(currentTheme);
-});
-
-// Update icon and label based on current theme
-function updateToggleUI(theme) {
-  if (theme === 'theme-dark') {
-    icon.textContent = '🌞';
-    label.textContent = 'Activate light mode';
-  } else {
-    icon.textContent = '🌙';
-    label.textContent = 'Activate dark mode';
+  function setTheme(theme) {
+    themeLink.setAttribute('href', theme);
+    localStorage.setItem('preferredTheme', theme);
+    updateToggleUI(theme);
   }
-}
+
+  function updateToggleUI(theme) {
+    if (theme === LIGHT_THEME) {
+      toggleButton.textContent = '🌙';
+      toggleButton.setAttribute('aria-label', 'Activate dark mode');
+    } else {
+      toggleButton.textContent = '🌞';
+      toggleButton.setAttribute('aria-label', 'Activate light mode');
+    }
+  }
+
+  toggleButton.addEventListener('click', () => {
+    const currentTheme = themeLink.getAttribute('href');
+    const newTheme = currentTheme === LIGHT_THEME ? DARK_THEME : LIGHT_THEME;
+    setTheme(newTheme);
+  });
+
+  // Apply saved theme or default to dark
+  const savedTheme = localStorage.getItem('preferredTheme') || DARK_THEME;
+  setTheme(savedTheme);
+});

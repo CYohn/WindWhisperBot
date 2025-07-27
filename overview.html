@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Technical Overview – Wind Whisper Bot</title>
+    <title>Technical Overview | Wind Whisper Bot</title>
     <link rel="stylesheet" href="styles/base.css" />
     <link rel="stylesheet" href="styles/theme-dark.css" id="theme-style" />
 </head>
@@ -14,7 +14,7 @@
     <nav>
         <h1>Wind Whisper Bot</h1>
         <ul>
-            <li><a href="index.html" id="home-nav">Home</a></li>
+            <li id="home-nav"><a href="index.html">Home</a></li>
             <li><a href="overview.html">Technical Overview</a></li>
             <li><a href="bot.html">The Bot</a></li>
             <li><a href="contact.html">Contact Us</a></li>
@@ -23,53 +23,67 @@
             <span id="theme-icon">🌙</span>
             <span id="theme-label">Activate dark mode</span>
         </button>
+    
     </nav>
+    <main style="max-width: 900px; margin: 2rem auto; line-height: 1.8;">
+        <h2 style="text-align: center;">Technical Overview</h2>
 
-    <main>
-        <section class="overview-section">
-            <h2>Technical Overview</h2>
-            <p><strong>Wind Whisper Bot</strong> is a voice-assisted weather assistant that combines modern
-                conversational AI with real-time weather data from the <a href="https://openweathermap.org/api"
-                    target="_blank"><strong>OpenWeather API</strong></a>. Designed as a full-stack demo project, it
-                showcases a wide range of skills relevant to Intelligent Virtual Assistant (IVA) and Digital Platform
-                development.</p>
+        <p><strong>Wind Whisper Bot</strong> is a full-stack Conversational AI demo designed to demonstrate the
+            technical and architectural skills required for an IVA Voice and Digital Chat Developer role.</p>
 
-            <h3>🌐 Project Stack</h3>
-            <ul>
-                <li><strong>Frontend:</strong> HTML5, CSS3 (light/dark themes), JavaScript (modular with toggle logic)
-                </li>
-                <li><strong>Backend:</strong> Node.js (Express.js) – for routing, API handling</li>
-                <li><strong>Database:</strong> MySQL – stores user queries, preferences (simulated for demo)</li>
-                <li><strong>API:</strong> RESTful fetch from OpenWeather API</li>
-                <li><strong>AI:</strong> Conversational logic simulated with basic NLU-style responses</li>
-                <li><strong>Conversational AI:</strong> Integrated with <a href="https://www.kore.ai"
-                        target="_blank"><strong>Kore.ai</strong></a>, utilizing real IVA workflows and built-in NLU/NLP capabilities to
-                    process user input and deliver contextual responses.</li>
+        <p>This application features real-time communication with <strong>Kore.ai</strong> using live IVA workflows and
+            a middleware integration via <strong>Railway</strong> to manage webhooks and dynamic response delivery. It
+            emphasizes practical implementation of API orchestration, conversational design, and backend logic with
+            clean UX principles.</p>
 
+        <h3>🔧 Project Stack & Technologies</h3>
+        <ul>
+            <li><strong>Frontend:</strong> HTML5, CSS (Light/Dark themes), vanilla JavaScript</li>
+            <li><strong>Backend:</strong> Node.js for API handling and data routing</li>
+            <li><strong>Conversational AI:</strong> Live integration with <a href="https://www.kore.ai"
+                    target="_blank"><strong>Kore.ai</strong></a> IVA workflows and NLU/NLP</li>
+            <li><strong>Middleware Relay:</strong> Railway.app to support webhook functionality</li>
+            <li><strong>Database:</strong> MySQL for logging queries and responses</li>
+            <li><strong>Data Format:</strong> JSON for API communication</li>
+            <li><strong>APIs:</strong> RESTful endpoints for both inbound and outbound requests</li>
+        </ul>
 
-            </ul>
+        <h3>⚙️ Architecture Workflow</h3>
+        <ol>
+            <li>User enters a weather-related question into the UI</li>
+            <li>Input is sent to <strong>Kore.ai</strong> through a REST API</li>
+            <li>Kore.ai processes the message using NLU and routes the response to Railway</li>
+            <li>The frontend retrieves the reply from Railway</li>
+            <li>The conversation is logged in a MySQL database for analysis</li>
+        </ol>
 
-            <h3>⚙️ Key Features</h3>
-            <ul>
-                <li>Toggleable dark/light themes with smooth transitions</li>
-                <li>LocalStorage-based redirect logic for returning users</li>
-                <li>Modular design using <code>/styles</code> and <code>/scripts</code> folders for scalability</li>
-                <li>Responsive layout and accessible design</li>
-            </ul>
+        <h3>✅ Skills Demonstrated</h3>
+        <ul>
+            <li>IVA design with NLU/NLP (Kore.ai)</li>
+            <li>Backend integration with REST APIs</li>
+            <li>Node.js development for middleware coordination</li>
+            <li>Database handling with MySQL</li>
+            <li>JSON parsing and data structuring</li>
+            <li>Frontend interaction logic using vanilla JavaScript</li>
+            <li>Light/Dark theme UI management</li>
+            <li>Separation of concerns and modular architecture</li>
+        </ul>
 
-            <h3>🧠 Skills Demonstrated</h3>
-            <ul>
-                <li>REST API integration (OpenWeather)</li>
-                <li>Front-end and back-end communication</li>
-                <li>State management with localStorage</li>
-                <li>Theming and CSS architecture (BEM-like, component-friendly)</li>
-                <li>Node.js/Express routing (local server in development)</li>
-                <li>Basic conversational flow (to demonstrate IVA simulation)</li>
-            </ul>
+        <h3>🚀 Alignment with Role Requirements</h3>
+        <p>This project aligns directly with the IVA Voice and Digital Chat Developer responsibilities, demonstrating:
+        </p>
+        <ul>
+            <li>Conversational AI platform mastery (Kore.ai)</li>
+            <li>Intent recognition, entity extraction, and dialog flow implementation</li>
+            <li>REST API consumption and webhook handling</li>
+            <li>NLU model application and response generation</li>
+            <li>Database integration for logging and analytics</li>
+            <li>Use of JSON for payload handling</li>
+            <li>Testing and debugging asynchronous data flows</li>
+        </ul>
 
-            <p>This project is not meant to be a commercial-grade assistant, but a solid showcase of the **end-to-end
-                IVA solution pipeline** using modern web technologies.</p>
-        </section>
+        <p><em>Wind Whisper Bot</em> represents a practical, scalable, and extensible Conversational AI
+            application—tailored for real-world enterprise use.</p>
     </main>
 
     <footer>

@@ -189,3 +189,8 @@ footer,
     cursor: pointer;
     font-weight: bold;
 }
+
+.contact-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
