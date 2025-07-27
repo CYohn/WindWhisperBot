@@ -7,12 +7,24 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
-// Route to receive the message from Kore.ai (Webhook endpoint)
+// Route for direct client messages (from your website)
+app.post('/message', (req, res) => {
+  const userMessage = req.body.message;
+  console.log('Received from frontend:', userMessage);
+
+  // Temporary bot logic
+  const response = {
+    reply: `You said: "${userMessage}". WindWhisperBot is thinking... 🌬️`
+  };
+
+  res.json(response);
+});
+
+// Route to receive message from Kore.ai (for future webhook)
 app.post('/kore-response', (req, res) => {
   const userMessage = req.body.message;
   console.log('Received from Kore.ai:', userMessage);
 
-  // TODO: Respond with actual bot logic or static placeholder
   const response = {
     reply: `You said: "${userMessage}". WindWhisperBot is thinking... 🌬️`
   };
