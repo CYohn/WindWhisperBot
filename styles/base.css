@@ -92,3 +92,44 @@ footer {
         align-items: flex-start;
     }
 }
+
+/*For the light and dark toggle button*/
+
+#theme-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.95rem;
+    background: none;
+    color: var(--accent-color);
+    border: 1px solid var(--accent-color-light);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+/*For the light and dark toggle button*/
+#theme-toggle:hover {
+    background: var(--accent-color-light);
+}
+
+/* Smooth transition for theme changes */
+body,
+nav,
+header,
+footer,
+.cta-button {
+    transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+}
+
+
+.bot-container {
+    margin: 4rem auto;
+    max-width: 600px;
+    padding: 2rem;
+    border: 1px solid var(--accent-color-light);
+    border-radius: 10px;
+    background-color: var(--bg-color);
+    text-align: center;
+}

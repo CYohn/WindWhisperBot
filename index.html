@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Wind Whisper Bot</title>
-  <link rel="stylesheet" href="css/base.css" />
-  <link rel="stylesheet" href="css/theme-dark.css" id="theme-style" />
-</head>
-<body>
+  <link rel="stylesheet" href="styles/base.css" />
+  <link rel="stylesheet" href="styles/theme-dark.css" id="theme-style" />
+  <body>
+ 
 
+</head>
+
+<body>
+ <script src="scripts/redirect-after-first-visit.js"></script>
   <nav>
     <h1>Wind Whisper Bot</h1>
     <ul>
@@ -16,11 +21,17 @@
       <li><a href="overview.html">Technical Overview</a></li>
       <li><a href="contact.html">Contact Us</a></li>
     </ul>
+    <button id="theme-toggle" title="Toggle Theme">
+      <span id="theme-icon">🌙</span>
+      <span id="theme-label">Activate dark mode</span>
+    </button>
+
   </nav>
 
   <header>
     <h2>Forecasts with a Voice</h2>
-    <p>Wind Whisper Bot is your AI-powered conversational weather assistant—merging data, dialogue, and design to forecast smarter.</p>
+    <p>Wind Whisper Bot is your AI-powered conversational weather assistant—merging data, dialogue, and design to
+      forecast smarter.</p>
     <button class="cta-button">Explore the Bot</button>
   </header>
 
@@ -28,5 +39,8 @@
     © 2025 Wind Whisper Bot • Reimagining weather, one whisper at a time.
   </footer>
 
+  <!-- External Script -->
+  <script src="scripts/theme-toggle.js"></script>
 </body>
+
 </html>
