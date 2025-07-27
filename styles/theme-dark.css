@@ -1,0 +1,11 @@
+/* theme-dark.css */
+:root {
+    --bg-color: #0a0f1c;
+    --text-color: #e0e0e0;
+    --muted-text: #666;
+    --accent-color: #00c6ff;
+    --accent-color-light: #00c6ff33;
+    --button-bg: linear-gradient(to right, #00c6ff, #0072ff);
+    --button-hover-bg: linear-gradient(to right, #0072ff, #00c6ff);
+    --button-text: white;
+}

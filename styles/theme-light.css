@@ -1,0 +1,11 @@
+/* theme-light.css */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #222;
+    --muted-text: #888;
+    --accent-color: #0077cc;
+    --accent-color-light: #0077cc33;
+    --button-bg: linear-gradient(to right, #0077cc, #00b7ff);
+    --button-hover-bg: linear-gradient(to right, #00b7ff, #0077cc);
+    --button-text: white;
+}
