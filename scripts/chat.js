@@ -31,7 +31,8 @@ responseBox.innerHTML += `<div class="message user"><strong>You:</strong> ${user
     input.value = "";
 
     try {
-      const res = await fetch("https://your-railway-api-url/kore-response", {
+      const res = await fetch("https://windwhisperbot-production.up.railway.app/message", {
+
         method: "POST",
         headers: {
           "Content-Type": "application/json",
