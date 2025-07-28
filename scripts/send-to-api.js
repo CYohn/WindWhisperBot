@@ -17,7 +17,7 @@ document.getElementById('chat-form').addEventListener('submit', async (event) =>
     .replace(/`/g, "&#x60;");
 
   try {
-    const response = await fetch('https://YOUR-RAILWAY-URL-HERE.com/api/sendToKore', {
+    const response = await fetch('https://windwhisperbot-production.up.railway.app/kore-response', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ message: sanitizedMessage })
