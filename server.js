@@ -31,19 +31,22 @@ app.post('/message', async (req, res) => {
   try {
     if (!accessToken) {
       accessToken = await getKoreAccessToken();
+      console.log('✅ Access token obtained:', accessToken);
     }
+
+    const webhookPayload = {
+      message: { text: userMessage },
+      from: {
+        id: 'windwhisper@demo.com',
+        name: 'Wind Whisper User'
+      }
+    };
+
+    console.log('📤 Sending to Kore.ai:', webhookPayload);
 
     const response = await axios.post(
       process.env.KORE_WEBHOOK,
-      {
-        message: {
-          text: userMessage
-        },
-        from: {
-          id: 'user@example.com', // Replace or randomize if needed
-          name: 'Wind Whisper User'
-        }
-      },
+      webhookPayload,
       {
         headers: {
           Authorization: `bearer ${accessToken}`,
@@ -52,15 +55,18 @@ app.post('/message', async (req, res) => {
       }
     );
 
+    console.log('✅ Kore.ai Response:', response.data);
+
     const botReply = response.data?.textResponse || 'No response from bot.';
     res.json({ reply: botReply });
 
   } catch (err) {
     console.error('Error contacting Kore.ai:', err.response?.data || err.message);
-    accessToken = null; // Clear token on failure to force refresh
+    accessToken = null;
     res.status(500).json({ reply: 'Error communicating with WindWhisperBot.' });
   }
 });
+
 
 // Test route
 app.get('/', (req, res) => {
