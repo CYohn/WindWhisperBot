@@ -31,7 +31,7 @@ app.post('/message', async (req, res) => {
 
   try {
     // Step 1: Get Access Token from Kore.ai
-    const authResponse = await axios.post('https://idproxy.kore.ai/api/token', {
+    const authResponse = await axios.post('https://idproxy.kore.ai/oauth2/token', {
       clientId: process.env.KORE_CLIENT_ID,
       clientSecret: process.env.KORE_CLIENT_SECRET,
       scope: process.env.KORE_SCOPE
