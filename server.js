@@ -1,3 +1,5 @@
+// server.js
+
 const express = require('express');
 const cors = require('cors');
 const axios = require('axios');
@@ -9,43 +11,45 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
-let accessToken = null;
-
-// Get new access token from Kore.ai
-async function getKoreAccessToken() {
-  const tokenURL = 'https://idproxy.kore.com/oauth2/token';
-  const params = new URLSearchParams();
-  params.append('client_id', process.env.KORE_CLIENT_ID);
-  params.append('client_secret', process.env.KORE_CLIENT_SECRET);
-  params.append('grant_type', 'client_credentials');
-  params.append('scope', process.env.KORE_SCOPE);
-
-  const res = await axios.post(tokenURL, params);
-  return res.data.access_token;
-}
-
-// Handle messages from frontend
+// Endpoint to handle incoming messages from the frontend
 app.post('/message', async (req, res) => {
   const userMessage = req.body.message;
   console.log('Incoming user message:', userMessage);
 
   try {
-    // Step 1: Get Access Token from Kore.ai
-    const authResponse = await axios.post('https://idproxy.kore.ai/oauth2/token', {
-      clientId: process.env.KORE_CLIENT_ID,
-      clientSecret: process.env.KORE_CLIENT_SECRET,
-      scope: process.env.KORE_SCOPE
+    // Step 1: Get access token from Kore.ai
+    const params = new URLSearchParams();
+    params.append('client_id', process.env.KORE_CLIENT_ID);
+    params.append('client_secret', process.env.KORE_CLIENT_SECRET);
+    params.append('grant_type', 'client_credentials');
+
+    const authResponse = await axios.post('https://idproxy.kore.ai/oauth2/token', params, {
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
     });
 
     const accessToken = authResponse.data.access_token;
     console.log('Retrieved Kore.ai access token.');
 
-    // Step 2: Send user message to Kore.ai Bot
+    // Step 2: Send user message to Kore.ai via Webhook V2
     const koreResponse = await axios.post(
       process.env.KORE_WEBHOOK,
       {
-        message: { text: userMessage },
-        from: { id: "user@example.com", name: "WebUser" }
+        session: { new: true },
+        message: {
+          type: "text",
+          val: userMessage
+        },
+        from: {
+          id: "user-123",
+          userInfo: {
+            firstName: "Web",
+            lastName: "User",
+            email: "webuser@example.com"
+          }
+        },
+        to: {
+          id: process.env.KORE_BOT_ID
+        }
       },
       {
         headers: {
@@ -55,9 +59,11 @@ app.post('/message', async (req, res) => {
       }
     );
 
-    console.log('Kore.ai response:', koreResponse.data);
+    // Step 3: Extract the bot response from Kore.ai
+    const botReply = koreResponse.data?.data?.[0]?.val ?? 'No response from Kore.ai.';
+    console.log('Bot reply:', botReply);
 
-    const botReply = koreResponse.data?.body?.message ?? 'No response from Kore.ai.';
+    // Step 4: Send response to frontend
     res.json({ reply: botReply });
 
   } catch (err) {
@@ -66,9 +72,7 @@ app.post('/message', async (req, res) => {
   }
 });
 
-
-
-// Test route
+// Basic test route
 app.get('/', (req, res) => {
   res.send('Wind Whisper API is running.');
 });
