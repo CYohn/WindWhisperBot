@@ -27,45 +27,45 @@ async function getKoreAccessToken() {
 // Handle messages from frontend
 app.post('/message', async (req, res) => {
   const userMessage = req.body.message;
+  console.log('Incoming user message:', userMessage);
 
   try {
-    if (!accessToken) {
-      accessToken = await getKoreAccessToken();
-      console.log('✅ Access token obtained:', accessToken);
-    }
+    // Step 1: Get Access Token from Kore.ai
+    const authResponse = await axios.post('https://idproxy.kore.ai/api/token', {
+      clientId: process.env.KORE_CLIENT_ID,
+      clientSecret: process.env.KORE_CLIENT_SECRET,
+      scope: process.env.KORE_SCOPE
+    });
 
-    const webhookPayload = {
-      message: { text: userMessage },
-      from: {
-        id: 'windwhisper@demo.com',
-        name: 'Wind Whisper User'
-      }
-    };
+    const accessToken = authResponse.data.access_token;
+    console.log('Retrieved Kore.ai access token.');
 
-    console.log('📤 Sending to Kore.ai:', webhookPayload);
-
-    const response = await axios.post(
+    // Step 2: Send user message to Kore.ai Bot
+    const koreResponse = await axios.post(
       process.env.KORE_WEBHOOK,
-      webhookPayload,
+      {
+        message: { text: userMessage },
+        from: { id: "user@example.com", name: "WebUser" }
+      },
       {
         headers: {
-          Authorization: `bearer ${accessToken}`,
+          Authorization: `Bearer ${accessToken}`,
           'Content-Type': 'application/json'
         }
       }
     );
 
-    console.log('✅ Kore.ai Response:', response.data);
+    console.log('Kore.ai response:', koreResponse.data);
 
-    const botReply = response.data?.textResponse || 'No response from bot.';
+    const botReply = koreResponse.data?.body?.message ?? 'No response from Kore.ai.';
     res.json({ reply: botReply });
 
   } catch (err) {
-    console.error('Error contacting Kore.ai:', err.response?.data || err.message);
-    accessToken = null;
-    res.status(500).json({ reply: 'Error communicating with WindWhisperBot.' });
+    console.error('Error communicating with Kore.ai:', err.response?.data || err.message);
+    res.json({ reply: 'Error communicating with WindWhisperBot.' });
   }
 });
+
 
 
 // Test route
