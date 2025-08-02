@@ -34,7 +34,7 @@ app.get("/api/users/getJWT", async (req, res) => {
     const token = response.data.access_token;
     res.json({ jwt: token });
   } catch (error) {
-    console.error("❌ JWT generation error:", error.response?.data || error.message);
+    console.error("JWT generation error:", error.response?.data || error.message);
     console.error("Stack trace:", error.stack);
     res.status(500).json({ error: "Failed to generate JWT" });
   }
