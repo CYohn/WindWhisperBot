@@ -18,6 +18,7 @@
             <li><a href="bot.html">The Bot</a></li>
             <li><a href="overview.html">Technical Overview</a></li>
             <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="test-widget.html">test</a></li></li>
         </ul>
         <button id="theme-toggle" title="Toggle Theme">
             <span id="theme-icon">🌙</span>
@@ -30,17 +31,9 @@
             <h2>Talk to the Wind Whisper Bot</h2>
             <p>Type your question below and let the wind whisper back...</p>
     
-            <form id="chat-form" class="chat-form">
-                <label for="user-input" class="visually-hidden">Your Message</label>
-                <input type="text" id="user-input" name="user-input" placeholder="Ask me anything about the weather..."
-                    required />
-                <button type="submit">Send</button>
-            </form>
+            
     
-            <div id="chat-response" class="chat-response">
-                <!-- Bot's response will appear here -->
-                <p class="placeholder-response">(Bot response area)</p>
-            </div>
+            
         </section>
     </main>
 
@@ -50,15 +43,11 @@
     </footer>
 
     <script src="scripts/theme-toggle.js"></script>
-    <script src="scripts/chat.js" defer></script>
-    <script src="scripts/send-to-api.js"></script>
+
     
-    <!-- From kore.ai -->
-    <link rel='stylesheet' href='https://bots.kore.ai/webclient/UI/dist/kore-ai-sdk.min.css'>
-    </link>
-    <script
-        src='https://bots.kore.ai/api/platform/websdkjs/c4d5ae2ceec74527a720c142c15304e48c44c17385084874a943b26326e2be0ast4c'></script>
-    <script>KoreSDK.show(KoreSDK.chatConfig);</script>
+
+
     </body>
+    
 
 </html>
