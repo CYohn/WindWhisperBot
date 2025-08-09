@@ -44,6 +44,8 @@ app.post("/getJWT", (req, res) => {
     res.json({ jwt: token });
   } catch (e) { res.status(500).json({ error: "JWT sign failed" }); }
 });
-
+app.post("/getJWT", (req, res) => {
+  // … existing JWT signing logic …
+});
 
 app.listen(PORT, () => console.log(`Server listening on ${PORT}`));

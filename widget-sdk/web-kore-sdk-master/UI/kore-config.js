@@ -3,8 +3,13 @@
     var KoreSDK=KoreSDK||{};
 
     var botOptions = {};
+
+    
+
+
+
     botOptions.logLevel = 'debug';
-    botOptions.koreAPIUrl = "https://bots.kore.ai/api/";
+    botOptions.koreAPIUrl = "https://bots.kore.ai";
     botOptions.koreSpeechAPIUrl = "";//deprecated
     //botOptions.bearer = "bearer xyz-------------------";
     //botOptions.ttsSocketUrl = '';//deprecated
@@ -20,17 +25,17 @@
         }
     }
 
-    botOptions.JWTUrl = "PLEASE_ENTER_JWTURL_HERE";
-    botOptions.userIdentity = 'PLEASE_ENTER_USER_EMAIL_ID';// Provide users email id here
-    botOptions.botInfo = { name: "PLEASE_ENTER_BOT_NAME", "_id": "PLEASE_ENTER_BOT_ID" }; // bot name is case sensitive
+    botOptions.JWTUrl = "http://localhost:8080/getJWT";
+    botOptions.userIdentity = 'user@windwhisperbot.com';// Provide users email id here
+    botOptions.botInfo = { name: "WindWhisperBot", _id: "st-4cbf8fcc-77c8-591a-b62c-875dfac9f721" }; // bot name is case sensitive
 
     /* 
     Important Note: These keys are provided here for quick demos to generate JWT token at client side but not for Production environment.
     Refer below document for JWT token generation at server side. Client Id and Client secret should maintained at server end.
     https://developer.kore.ai/docs/bots/sdks/user-authorization-and-assertion/
     **/
-    botOptions.clientId = "PLEASE_ENTER_CLIENT_ID";
-    botOptions.clientSecret = "PLEASE_ENTER_CLIENT_SECRET";
+    botOptions.clientId = "cs-8a15ce5b-84c4-5f13-8144-4274ab196749";
+    botOptions.clientSecret = "RjorcaRelFreZP97nlhOGBBaWAgZeWUa9kXeunu4PRw=";
     botOptions.brandingAPIUrl = botOptions.koreAPIUrl +'websdkthemes/'+  botOptions.botInfo._id+'/activetheme';
     botOptions.enableThemes = true;
 // for webhook based communication use following option 
@@ -54,7 +59,7 @@
         isSendButton: false, 			// set true, to show send button below the compose bar
         isTTSEnabled: true,			// set true, to show speaker icon
         ttsInterface: 'webapi',          // webapi or awspolly or azure , where default is webapi
-        isSpeechEnabled: true,			// set true, to show mic icon
+        isSpeechEnabled: false,			// set true, to show mic icon
         azureTTS: {                    // uncomments respective files in index.html
             subscriptionKey: '',       // Azure subscription key
             region: 'eastus'           // preferred Azure region
@@ -74,13 +79,13 @@
             recognitionLanguage: 'en-US'
            }
         },
-        allowLocation: true,			// set false, to deny sending location to server
+        allowLocation: false,			// set false, to deny sending location to server
         loadHistory: true,				// set true to load recent chat history
-        messageHistoryLimit: 10,		// set limit to load recent chat history
+        messageHistoryLimit: 100,		// set limit to load recent chat history
         autoEnableSpeechAndTTS: false, 	// set true, to use talkType voice keyboard.
         graphLib: "d3" ,				// set google, to render google charts.This feature requires loader.js file which is available in google charts documentation.
-        googleMapsAPIKey:"",
-        minimizeMode: true,             // set true, to show chatwindow in minimized mode, If false is set remove #chatContainer style in chatwindow.css  
+        //googleMapsAPIKey:"",
+        minimizeMode: false,             // set true, to show chatwindow in minimized mode, If false is set remove #chatContainer style in chatwindow.css  
         multiPageApp: {
             enable: false,              //set true for non SPA(Single page applications)
             userIdentityStore: 'localStorage',//'localStorage || sessionStorage'

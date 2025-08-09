@@ -268,3 +268,7 @@ footer,
     align-self: flex-start;
     text-align: left;
 }
+
+.kore-launcher {
+    display: none;
+}
