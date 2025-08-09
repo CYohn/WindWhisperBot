@@ -34,8 +34,8 @@
     Refer below document for JWT token generation at server side. Client Id and Client secret should maintained at server end.
     https://developer.kore.ai/docs/bots/sdks/user-authorization-and-assertion/
     **/
-    botOptions.clientId = "cs-8a15ce5b-84c4-5f13-8144-4274ab196749";
-    botOptions.clientSecret = "RjorcaRelFreZP97nlhOGBBaWAgZeWUa9kXeunu4PRw=";
+    //botOptions.clientId = "";
+    //botOptions.clientSecret = "";
     botOptions.brandingAPIUrl = botOptions.koreAPIUrl +'websdkthemes/'+  botOptions.botInfo._id+'/activetheme';
     botOptions.enableThemes = true;
 // for webhook based communication use following option 
