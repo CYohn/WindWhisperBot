@@ -8,4 +8,35 @@
     --button-bg: linear-gradient(to right, #00c6ff, #0072ff);
     --button-hover-bg: linear-gradient(to right, #0072ff, #00c6ff);
     --button-text: white;
+    
+}
+
+/* Make sure page content sits above */
+nav,
+main,
+footer {
+    position: relative;
+    z-index: 1;
+}
+
+/*Dark mode background images */
+.home-background {
+    background-image: url("../assets/rainRobot.png");
+}
+
+.overview-background {
+    background-image: url("../assets/robotClouds.jpg");
+}
+
+.contact-background {
+    background-image: url("../assets/robotCity.jpg");
+}
+
+/*Dark mode overlay */
+.home-background::after,
+.overview-background::after,
+.contact-background::after {
+    background: rgba(0, 0, 0, 0.90);
+    /*darker tint in dark mode*/
+    z-index: -1;
 }

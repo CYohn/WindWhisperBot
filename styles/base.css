@@ -12,6 +12,7 @@ nav {
     align-items: center;
     padding: 1rem 2rem;
     box-shadow: 0 0 10px var(--accent-color-light);
+    z-index: 10;
 }
 
 nav h1 {
@@ -59,6 +60,8 @@ header p {
     margin-bottom: 2rem;
 }
 
+
+
 .cta-button {
     padding: 0.75rem 1.5rem;
     font-size: 1rem;
@@ -92,6 +95,7 @@ footer {
         align-items: flex-start;
     }
 }
+
 
 /*For the light and dark toggle button*/
 
@@ -271,4 +275,68 @@ footer,
 
 .kore-launcher {
     display: none;
+}
+
+/* Make sure page content sits above */
+nav,
+main,
+footer {
+    position: relative;
+    z-index: 1;
+}
+
+/* BACKGROUND — shared settings */
+.home-background,
+.overview-background,
+.contact-background {
+    position: fixed;
+    /*full-viewport layer*/
+    inset: 0;
+    /*top:0; right:0; bottom:0; left:0;*/
+     width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+    /* behind content, but not negative */
+    pointer-events: none;
+    /* never intercept clicks/scroll */
+ }
+
+/* Light mode images */
+ .home-background {
+    background-image: url("../assets/rainRobot.png");
+}
+
+.overview-background {
+    background-image: url("../assets/robotClouds.jpg");
+}
+
+.contact-background {
+    background-image: url("../assets/robotCity.jpg");
+} 
+
+/* Light mode overlay (covers full viewport) */
+.home-background::after,
+.overview-background::after,
+.contact-background::after {
+    content: "";
+    position: fixed;
+    /* pin to viewport */
+    inset: 0;
+    background: rgba(255, 255, 255, 0.85);
+    /* adjust to taste */
+    pointer-events: none;
+    /* overlay also non-interactive */
+    z-index: -1;
+    /* same layer as bg */
+ }
+
+
+/* Allow scrolling */
+html,
+body {
+    overflow-y: auto;
+    overflow-x: auto;
 }
